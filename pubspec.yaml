@@ -1,0 +1,6 @@
+name: flutter_ttt_workshop
+
+dependencies:
+  melos:
+environment:
+  sdk: "^3.2.0"
