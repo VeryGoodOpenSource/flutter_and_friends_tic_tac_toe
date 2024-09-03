@@ -28,13 +28,11 @@ dart pub global activate dart_frog_cli
 Initialize your project in a new directory using the command below
 
 ```shell
-mkdir tic_tac_toe
-cd tic_tac_toe
-globe create -t tic_tac_toe
+git clone https://github.com/verygoodopensource/flutter_and_friends_tic_tac_toe.git
 ```
 
 ```shell
-cd tic_tac_toe
+cd flutter_and_friends_tic_tac_toe
 melos bootstrap
 ```
 
