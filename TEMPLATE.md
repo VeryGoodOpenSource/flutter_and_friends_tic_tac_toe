@@ -26,13 +26,13 @@ dart pub global activate globe_cli melos dart_frog_cli
 Initialize your project in a new directory using the command below
 
 ```shell
-mkdir flutter_tictactoe
-cd flutter_tictactoe
-globe create -t verygoodopensoure_flutter_and_friends_tic_tac_toe
+mkdir tic_tac_toe
+cd tic_tac_toe
+globe create -t tic_tac_toe
 ```
 
 ```shell
-cd flutter_tictactoe
+cd tic_tac_toe
 melos bootstrap
 ```
 
