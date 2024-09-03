@@ -6,16 +6,19 @@ import 'package:backend/redis.dart';
 /// TODO(workshopper): We will change the stream type.
 class Game extends StreamView<int> {
   Game._(
-    int id, {
+    int id, 
+    List<int?> fields, {
     int player = 0,
   }) : this.__(
           id,
+          fields,
           player,
           StreamController<int>.broadcast(sync: true),
         );
 
   Game.__(
     this.id,
+    this.fields,
     this.player,
     this._controller,
   ) : super(_controller.stream);
@@ -25,6 +28,12 @@ class Game extends StreamView<int> {
   ///  1 = player 1
   ///  2 = player 2
   final int player;
+
+
+  /// Null = no player moved.
+  /// 1 = player 1 moved.
+  /// 2 = player 2 moved.
+  final List<int?> fields;
 
   /// A unique identifier for the game.
   /// This is currently just a incrementing number from Redis.
@@ -64,5 +73,19 @@ class Game extends StreamView<int> {
     // TODO(workshopper):
     //     - Implement move validation and update game state in Redis.
     //     - Trigger a game won status if the result is that a player has won.
+  }
+
+  bool _hasThreeInARow(int player) {
+    if (fields[0] == player && fields[1] == player && fields[2] == player ||
+        fields[3] == player && fields[4] == player && fields[5] == player ||
+        fields[6] == player && fields[7] == player && fields[8] == player ||
+        fields[0] == player && fields[3] == player && fields[6] == player ||
+        fields[1] == player && fields[4] == player && fields[7] == player ||
+        fields[2] == player && fields[5] == player && fields[8] == player ||
+        fields[0] == player && fields[4] == player && fields[8] == player ||
+        fields[2] == player && fields[4] == player && fields[6] == player) {
+      return true;
+    }
+    return false;
   }
 }
