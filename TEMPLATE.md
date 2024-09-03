@@ -26,10 +26,17 @@ dart pub global activate globe_cli melos dart_frog_cli
 Initialize your project in a new directory using the command below
 
 ```shell
-mkdir flutter_sudoku
-cd flutter_sudoku
-globe create -t flutter_ttt
+mkdir flutter_tictactoe
+cd flutter_tictactoe
+globe create -t verygoodopensoure_flutter_and_friends_tic_tac_toe
 ```
+
+```shell
+cd flutter_tictactoe
+melos bootstrap
+```
+
+Now open the project in your favorite IDE.
 
 #### Start Dart Server
 
@@ -47,4 +54,21 @@ melos frontend
 
 ### Deployment
 
-TODO: Deploy backend first, then deploy frontend, frontend will need to be able to connect to backend by reading a flutter build arg.
+#### Deploy Backend
+
+```shell
+cd backend
+globe deploy
+```
+
+#### Deploy Frontend
+
+> Note: The frontend needs to be able to connect to the backend.
+> The easiest way to do this is to deploy the backend first, and then
+> deploy the frontend with the backend used URL in your Flutter code
+> instead of using `localhost:8080`.
+
+```shell
+cd frontend
+globe deploy
+```
