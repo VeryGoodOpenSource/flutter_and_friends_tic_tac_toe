@@ -18,7 +18,9 @@ Create a Tic Tac Toe game with Flutter and Dart Frog.
 Install Globe, Melos and Dart Frog CLIs using the command below
 
 ```shell
-dart pub global activate globe_cli melos dart_frog_cli
+dart pub global activate globe_cli
+dart pub global activate melos 
+dart pub global activate dart_frog_cli
 ```
 
 #### Bootstrap
